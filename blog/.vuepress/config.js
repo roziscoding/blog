@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Roz Is Coding', // Title for the site. This will be displayed in the navbar.
+  title: 'Roz Is Coding',
   theme: '@vuepress/theme-blog',
   dest: 'public',
   themeConfig: {
