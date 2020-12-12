@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Roz Is Coding', // Title for the site. This will be displayed in the navbar.
   theme: '@vuepress/theme-blog',
+  dest: 'public',
   themeConfig: {
     footer: {
       contact: [
