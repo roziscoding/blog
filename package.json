@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roziscoding/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roziscoding/blog/issues"
+  },
+  "homepage": "https://github.com/roziscoding/blog#readme",
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.3",
+    "vuepress": "^1.7.1"
+  }
+}
