@@ -1,6 +1,14 @@
 ---
-title: "Vue.js + XState: Utilizando State Machines Para Simplificar o Estado de Uma Aplicação"
+meta: false
+top: true
+category: tecnologia
+tags:
+  - vue
+  - frontend
 date: 2023-03-01
+title: "Vue.js + XState: Utilizando State Machines Para Simplificar o Estado de Uma Aplicação"
+vssue-title: Vue + XSTate
+draft: true
 ---
 Se você já criou algumas aplicações com Vue.js, muito possivelmente já passou por dificuldades ao gerenciar o estado de um procedimento e, principalmente, ao renderizar layout específico para cada estado. Muitas vezes é preciso controlar múltiplas variáveis, como `isLoading` e `hasError`, e combiná-las em expressões condicionais como `!isLoading && hasError`, ou ainda `!isLoading && !hasError && !hasResults`. **Máquinas de estado**, ou `state machines`, oferecem uma forma mais estruturada de descrever esses estados. 
 
@@ -22,7 +30,7 @@ Além disso, poderíamos ter transições como "start", "complete" e "reset" par
 
 Um diagrama para a máquina de estado que acabamos de descrever poderia ser montado da seguinte forma:
 
-![Diagrama de estado para uma cafeteira](images/diagrama-cafeteira.png)
+![Diagrama de estado para uma cafeteira](./images/diagrama-cafeteira.png)
 
 ## Preparando o projeto
 
@@ -34,7 +42,7 @@ Antes de começar a utilizar o XState, obtenha o código base do projeto no [rep
 
 O código base contém o layout e estilo que vamos precisar, e um arquivo utilitário que chama a API do GitHub. Esta é a aplicação que vamos criar:
 
-![layout da aplicação base](images/resultado layout.png)
+![layout da aplicação base](./images/resultado layout.png)
 
 O conteúdo dos arquivos de base não é o foco deste artigo e, por isso, não vou explicar o que cada arquivo faz. Se preferir, gaste um tempo lendo os arquivos do repositório antes de prosseguir.
 
@@ -84,7 +92,7 @@ Repare que o valor de cada estado é, por enquanto, um objeto vazio. Preencherem
 
 Nesse ponto, já podemos gerar um diagrama de estado para nossa máquina. Para fazer isso, basta acessar o [visualizador online](https://stately.ai/viz) do XState, copiar o trecho de código que cria a máquina de estado, colar no editor ao lado direito da página e clicar no botão "Visualize". O resultado será algo muito parecido com a seguinte imagem:
 
-![diagrama de estado](images/state-chart-1.png)
+![diagrama de estado](./images/state-chart-1.png)
 
 Por enquanto, o diagrama não é muito útil pois apenas lista os estados possíveis. No entanto, a grande sacada das máquinas de estado não está nos estados por si só, mas sim na interação entre cada estado, ou melhor dizendo, nas **transições** entre um estado e outro. Sendo assim, vamos definir quais são essas transições.
 
@@ -115,7 +123,7 @@ const searchMachine = createMachine({
 
 Agora, se atualizarmos nosso diagrama de estado, veremos que ele mostra uma possível transição do estado `idle` para o estado `loading`, chamada `SEARCH`:
 
-![diagrama de estado com transição SEARCH](images/state-chart-2.png)
+![diagrama de estado com transição SEARCH](./images/state-chart-2.png)
 
 Ótimo! Vamos continuar. O próximo estado é o estado `success`, que indica que a requisição aconteceu e obteve sucesso. Após executar uma pesquisa, uma pessoa que utiliza nossa aplicação tem duas opções: executar uma nova pesquisa, ou limpar o campo de pesquisa e os resultados. Sendo assim, temos novamente uma transição chamada `SEARCH`, que leva a máquina de volta para o estado `loading`, e uma transição `RESET`, que leva a máquina para o estado `idle`:
 
@@ -176,7 +184,7 @@ const searchMachine = createMachine({
 
 Se atualizarmos nosso diagrama, teremos agora o seguinte resultado:
 
-![diagrama contendo as transições de error e success](images/state-chart-3.png)
+![diagrama contendo as transições de error e success](./images/state-chart-3.png)
 
 O diagrama mostra exatamente o que acabamos de descrever no código: a máquina inicia no estado `idle`, e dele é possível ir para `loading`. Também mostra a existência dos estados `error` e `success`, a partir dos quais é possível ir para `idle` ou `loading`.
 
@@ -212,7 +220,7 @@ const searchMachine = createMachine({
 
 E pronto! Se atualizarmos nosso diagrama agora, veremos o serviço e as novas transições representadas de forma correta:
 
-![diagrama de estado mostrando todas as transições possíveis](images/state-chart-4.png)
+![diagrama de estado mostrando todas as transições possíveis](./images/state-chart-4.png)
 
 Pronto! Temos todos os nossos estados e transições mapeados, e nossa máquina de estados representa o processo básico da requisição de busca no GitHub. No entanto, note que a função `searchRepository` requer um parâmetro, que é o termo de busca a ser utilizado. Para conseguirmos passar esse parâmetro, precisamos alterar a função `src` para utilizar o parâmetro `event`, que contém informações sobre o evento disparado e que levou a máquina ao estado atual. Dentre essas informações está o parâmetro `data`. O XState fornece essa informação como o segundo parâmetro da função `src`:
 
@@ -358,7 +366,7 @@ const searchMachine = createMachine({
 
 Se atualizarmos nosso diagrama de estado, o resultado será semelhante a esse:
 
-![diagrama de estado com as ações de assign](images/state-chart-5.png)
+![diagrama de estado com as ações de assign](./images/state-chart-5.png)
 
 Perceba que, agora, nas transições `error` e `done`, o XState identifica a chamada para a função `assign`, e identifica também que, em caso de erro, a propriedade `error` será preenchida e que, em caso de sucesso, a propriedade `results` será preenchida.
 
@@ -407,7 +415,7 @@ const searchMachine = createMachine(
 
 Atualizando o diagrama, podemos ver que essa ação aparece junto ao estado `idle`:
 
-![diagrama mostrando a ação de entrada](images/state-chart-6.png)
+![diagrama mostrando a ação de entrada](./images/state-chart-6.png)
 
 E pronto! Nossa máquina de estado está completamente implementada, e já podemos utiliza-la para controlar nosso layout!
 
@@ -473,7 +481,7 @@ import ResultsList from "./components/ResultsList.vue";
 
 A esse ponto, já podemos ver resultado em nosso layout. Para isso, execute `npm run dev` no terminal, dentro da pasta do projeto, e abra a URL informada. O resultado será nosso layout inicial exibindo a mensagem adequada ao estado `idle`:
 
-![página web exibindo o resultado até agora](images/result-idle.png)
+![página web exibindo o resultado até agora](./images/result-idle.png)
 
 No entanto, se você digitar algo na caixa de busca e clicar em "Pesquisar", nada vai acontecer, já que ainda não implementamos o comportamento dos botões.
 
@@ -498,7 +506,7 @@ const reset = () => send({ type: "RESET" });
 
 E pronto! Agora, se você for até seu navegador, terá um resultado semelhante a esse:
 
-![resultado final com todos os comportamentos](images/final-result.gif)
+![resultado final com todos os comportamentos](./images/final-result.gif)
 
 Legal demais! Nosso código está limpo, organizado, e o comportamento funciona exatamente conforme o esperado, com uma chance muito baixa de bugs, e facilidade para documentar o que está acontecendo! Para dar o toque final, podemos extrair essa lógica para um novo arquivo, a fim de melhorar a separação de responsabilidades da aplicação.
 
