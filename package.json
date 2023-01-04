@@ -23,6 +23,7 @@
   "homepage": "https://github.com/roziscoding/blog#readme",
   "dependencies": {
     "vuepress": "^1.9.7",
+    "vuepress-plugin-autometa": "^0.1.13",
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
