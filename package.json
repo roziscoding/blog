@@ -1,0 +1,28 @@
+{
+  "name": "@roziscoding/blog",
+  "version": "1.0.0",
+  "description": "Personal blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src --dest dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roziscoding/blog.git"
+  },
+  "keywords": [
+    "vuepress",
+    "blog"
+  ],
+  "author": "Roz <roz@rjmunhoz.me>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/roziscoding/blog/issues"
+  },
+  "homepage": "https://github.com/roziscoding/blog#readme",
+  "dependencies": {
+    "vuepress": "^1.9.7",
+    "vuepress-theme-meteorlxy": "^1.9.0"
+  }
+}

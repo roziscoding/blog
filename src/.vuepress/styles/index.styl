@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap')
+@import './fonts.styl'
+
+body
+  background-color: $backgroundColor
+  background-image: url('/assets/images/bg_full.png')
+  background-size: contain
+  background-position: right
+  font-family: 'Montserrat', sans-serif;
+  font-weight: light
+
+.main-div
+  background-color: $lightBackgroundColor
+
+.navbar-link
+  color $grayTextColor !important
+
+.header
+  background-color: unset !important
+
+.banner
+  background: linear-gradient(180deg, $purple 50%, transparent 100%);
+  border: 0 !important
+
+.navbar
+  background-color: $navbarColor !important
+  border: 0 !important
+
+h1, h2, h3, h4, h5, h6
+  margin-top (0.1rem - $navbarHeight) !important
+  padding-top (0.1rem + $navbarHeight) !important
+  font-family: 'BryantProBold'
+
+
+.post-meta .post-date
+  margin-bottom: 0 !important
+
+
+.content
+  // text-align: justify
+  padding: 0 10px 0 10px
+
+.content p
+  &:first-child
+    margin-top: 0
+
+.content strong
+  color: $orange
+
+.content p>code
+  color: $pink
+  background-color: $purple
+  white-space: nowrap
+
+.content blockquote
+  color: lighten($blue, 50%)
+
+.content a
+  color: $turquoise
+
+.post-nav-toc a
+  color: $white
+  transition: all 0.2s
+  &:hover
+    color: $accentColor
+  
+.post-link
+  font-weight: bold !important
+
+.info-card .info-card-header
+  height: 90px !important
+
+.info-card .info-card-header .info-avatar
+  transform: translateY(25px) !important
+
+.info-card-body
+  border: 0 !important
+
+.tags-select .tag-checkbox input[type="radio"]:checked + .post-tag, .tags-select .tag-checkbox input[type="checkbox"]:checked + .post-tag
+  color: darken($accentColor, 50%)
+
+.tags-select .tag-checkbox input[type="radio"]:checked + .post-tag .icon, .tags-select .tag-checkbox input[type="checkbox"]:checked + .post-tag .icon
+  fill: darken($accentColor, 50%)
+
+.icon
+  fill: darken($skyBlue, 30%)
+
+.footer
+  border: 0 !important
+
+.navbar-site-name
+  font-size: 1.6em !important
+  font-family: 'BryantProBold'
