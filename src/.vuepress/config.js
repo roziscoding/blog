@@ -76,17 +76,18 @@ module.exports = {
     },
   },
   plugins: [
-    'autometa',
-    {
-      canonical_base: 'https://blog.roz.ninja',
-      author: {
-        name: 'Roz',
-        twitter: 'roziscoding'
-      },
-      site: {
-        name: 'Blog do Roz',
-        twitter: 'roziscoding'
+    ['autometa',
+      {
+        canonical_base: 'https://blog.roz.ninja',
+        author: {
+          name: 'Roz',
+          twitter: 'roziscoding'
+        },
+        site: {
+          name: 'Blog do Roz',
+          twitter: 'roziscoding'
+        }
       }
-    }
+    ]
   ]
 }
