@@ -7,6 +7,17 @@ module.exports = {
     },
   },
   theme: 'meteorlxy',
+  head: [
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'
+      }
+    ],
+    ...googleAnalytics()
+  ],
   themeConfig: {
     lang: 'pt-BR',
     personalInfo: {
@@ -90,4 +101,23 @@ module.exports = {
       }
     ]
   ]
+}
+
+function googleAnalytics () {
+  return process.env.NODE_ENV === 'development'
+    ? []
+    : [
+      [
+        'script',
+        {
+          async: true,
+          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS_ID}`
+        }
+      ],
+      [
+        'script',
+        {},
+        `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${process.env.ANALYTICS_ID}",{anonymize_ip:!0}),router.afterEach(function(a){gtag("set","page",router.app.$withBase(a.fullPath)),gtag("send","pageview")});`
+      ]
+    ]
 }
