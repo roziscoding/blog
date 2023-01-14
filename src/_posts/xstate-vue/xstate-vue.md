@@ -9,7 +9,7 @@ date: 2023-03-01
 title: "Vue.js + XState"
 description: Utilizando State Machines Para Simplificar o Estado de Uma Aplicação
 vssue-title: Vue + XSTate
-image: https://blog.roz.ninja/assets/images/titles/xstate-vue.png
+image: https://og-image-generator.deno.dev/?title=Vue%20%2B%20XState&fontSize=192
 ---
 
 Se você já criou algumas aplicações com Vue.js, muito possivelmente já passou por dificuldades ao gerenciar o estado de um procedimento e, principalmente, ao renderizar layout específico para cada estado. Muitas vezes é preciso controlar múltiplas variáveis, como `isLoading` e `hasError`, e combiná-las em expressões condicionais como `!isLoading && hasError`, ou ainda `!isLoading && !hasError && !hasResults`. **Máquinas de estado**, ou `state machines`, oferecem uma forma mais estruturada de descrever esses estados. 
