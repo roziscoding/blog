@@ -1,53 +1,46 @@
 module.exports = {
-  title: 'Blog do Roz',
-  description: 'Tecnologia e algo mais',
+  title: "Blog do Roz",
+  description: "Tecnologia e algo mais",
   locales: {
-    '/': {
-      lang: 'pt-BR',
+    "/": {
+      lang: "pt-BR",
     },
   },
-  theme: 'meteorlxy',
+  theme: "meteorlxy",
   head: [
     [
-      'link',
+      "link",
       {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'
-      }
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons",
+      },
     ],
-    ...googleAnalytics()
+    ...googleAnalytics(),
   ],
   themeConfig: {
-    lang: 'pt-BR',
+    lang: "pt-BR",
     personalInfo: {
-      nickname: 'Roz',
-      description: 'Desenvolvedor brasileiro. Amo trabalho em equipe e estar envolvido com comunidades.',
-      email: 'roz@rjmunhoz.me',
-      location: 'João Pessoa, Paraíba',
-      avatar: 'https://gravatar.com/avatar/ef1e9399f1786de6adcbd51f29e967d6?s=800&d=robohash&r=g',
+      nickname: "Roz",
+      description:
+        "Desenvolvedor brasileiro. Amo trabalho em equipe e estar envolvido com comunidades.",
+      email: "roz@rjmunhoz.me",
+      location: "São Paulo, SP",
+      avatar:
+        "https://gravatar.com/avatar/ef1e9399f1786de6adcbd51f29e967d6?s=800&d=robohash&r=g",
       sns: {
         github: {
-          account: 'roziscoding',
-          link: 'https://roz.ninja/github',
-        },
-        twitter: {
-          account: 'roziscoding',
-          link: 'https://roz.ninja/twitter',
-        },
-        instagram: {
-          account: 'roziscoding',
-          link: 'https://roz.ninja/instagram',
+          account: "roziscoding",
+          link: "https://roz.ninja/github",
         },
         linkedin: {
-          account: 'roziscoding',
-          link: 'https://roz.ninja/linkedin',
+          account: "roziscoding",
+          link: "https://roz.ninja/linkedin",
         },
       },
     },
     header: {
       background: {
-        url: '',
+        url: "",
         useGeo: false,
       },
       showTitle: true,
@@ -55,26 +48,27 @@ module.exports = {
     footer: {
       poweredBy: true,
       poweredByTheme: true,
-      custom: 'Copyright 2023-present <a href="https://github.com/roziscoding" target="_blank">roziscoding</a> | GPL-3.0 License',
+      custom:
+        'Copyright 2023-present <a href="https://github.com/roziscoding" target="_blank">roziscoding</a> | GPL-3.0 License',
     },
     infoCard: {
       headerBackground: {
-        url: '',
+        url: "",
         useGeo: false,
       },
     },
-    lastUpdated: true,
+    lastUpdated: false,
     nav: [
-      { text: 'Home', link: '/', exact: true },
-      { text: 'Posts', link: '/posts/', exact: false },
+      { text: "Home", link: "/", exact: true },
+      { text: "Posts", link: "/posts/", exact: false },
     ],
     smoothScroll: true,
     zooming: {
       // @see https://vuepress.github.io/en/plugins/zooming
     },
     comments: {
-      owner: 'roziscoding',
-      repo: 'blog',
+      owner: "roziscoding",
+      repo: "blog",
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     },
@@ -83,41 +77,42 @@ module.exports = {
     },
     defaultPages: {
       home: true,
-      posts: true
+      posts: true,
     },
   },
   plugins: [
-    ['autometa',
+    [
+      "autometa",
       {
-        canonical_base: 'https://blog.roz.ninja',
+        canonical_base: "https://blog.roz.ninja",
         author: {
-          name: 'Roz',
-          twitter: 'roziscoding'
+          name: "Roz",
+          twitter: "roziscoding",
         },
         site: {
-          name: 'Blog do Roz',
-          twitter: 'roziscoding'
-        }
-      }
-    ]
-  ]
-}
+          name: "Blog do Roz",
+          twitter: "roziscoding",
+        },
+      },
+    ],
+  ],
+};
 
-function googleAnalytics () {
-  return process.env.NODE_ENV === 'development'
+function googleAnalytics() {
+  return process.env.NODE_ENV === "development"
     ? []
     : [
-      [
-        'script',
-        {
-          async: true,
-          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS_ID}`
-        }
-      ],
-      [
-        'script',
-        {},
-        `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${process.env.ANALYTICS_ID}",{anonymize_ip:!0}),router.afterEach(function(a){gtag("set","page",router.app.$withBase(a.fullPath)),gtag("send","pageview")});`
-      ]
-    ]
+        [
+          "script",
+          {
+            async: true,
+            src: `https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS_ID}`,
+          },
+        ],
+        [
+          "script",
+          {},
+          `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${process.env.ANALYTICS_ID}",{anonymize_ip:!0}),router.afterEach(function(a){gtag("set","page",router.app.$withBase(a.fullPath)),gtag("send","pageview")});`,
+        ],
+      ];
 }
