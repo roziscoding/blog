@@ -1,0 +1,48 @@
+html {
+  font-family: Arial, Helvetica;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Spacing lives on body as padding: browsers leave the root element's
+   bottom margin out of the scrollable area, so the page ended at the text. */
+body {
+  margin: 0;
+  padding: 3rem 25%;
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding: 3rem 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 2rem 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  color: #757575;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
