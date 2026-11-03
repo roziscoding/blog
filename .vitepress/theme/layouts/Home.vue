@@ -5,7 +5,7 @@ import { formatDate } from '../format'
 import { data as pageData } from '../loaders/pages.data'
 
 const pages = pageData
-  .filter(page => page.frontmatter.title && page.url !== '/index' && !page.frontmatter.archived)
+  .filter(page => page.frontmatter.title && !page.frontmatter.archived)
   .sort((a, b) => Date.parse(a.frontmatter.date) - Date.parse(b.frontmatter.date))
 const { site, page: currentPage } = useData()
 
